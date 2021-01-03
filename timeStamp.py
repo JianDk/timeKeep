@@ -20,11 +20,8 @@ class rfidTimeStamp:
 
         try:
             reader.write(text) #The text will only be written after the reader registers card contact
-            print(f"{text} Written")
+            print(f"{text} written to the card!")
         finally:
             GPIO.cleanup()
         time.sleep(5) #Introduced so that the card will not be accidentially read again within short time
         
-timeStamp = rfidTimeStamp()
-timeStamp.writeCard('hello world')
-timeStamp.readCard()
