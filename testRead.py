@@ -1,13 +1,15 @@
-#!/usr/bin/env python
+from MFRC522.mfrc522 import SimpleMFRC522
 import RPi.GPIO as GPIO
-from mfrc522 import SimpleMFRC522
 
-
-reader = SimpleMFRC522()
-
+obj = SimpleMFRC522()
 try:
-        id, text = reader.read()
-        print(id)
-        print(text)
+    idnum, text = obj.read(timeout = 10)
+except:
+    print('error')
+    GPIO.cleanup()
+    idnum, text = obj.read(timeout = 10)
 finally:
-        GPIO.cleanup()
+    GPIO.cleanup()
+
+print(idnum)
+print(text)

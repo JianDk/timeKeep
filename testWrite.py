@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
+from MFRC522.mfrc522 import SimpleMFRC522
 import RPi.GPIO as GPIO
-from mfrc522 import SimpleMFRC522
 
 reader = SimpleMFRC522()
 
 try:
-        text = input('New data:')
+        text = input('New data: ')
         print("Now place your tag to write")
         reader.write(text)
         print("Written")
